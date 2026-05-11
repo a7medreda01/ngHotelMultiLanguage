@@ -228,11 +228,11 @@
             <i class="bi bi-pencil-fill"></i> {{ 'features.waitinglist.btnEditStatus' | translate }}
           </button>
           <button class="btn-whatsapp-full" (click)="openWhatsApp(item.phone)">
-            <i class="bi bi-whatsapp"></i> {{ 'features.waitinglist.btnWhatsapp1' | translate }}
+            <i class="bi bi-whatsapp"></i> 
           </button>
           <button *ngIf="item.additionalPhone" class="btn-whatsapp-full"
                   (click)="openWhatsApp(item.additionalPhone!)">
-            <i class="bi bi-whatsapp"></i> {{ 'features.waitinglist.btnWhatsapp2' | translate }}
+            <i class="bi bi-whatsapp"></i> 
           </button>
           <button class="btn-primary" (click)="openConvert(item, $event)">
             <i class="bi bi-arrow-right-circle-fill"></i> {{ 'features.waitinglist.btnConvert' | translate }}

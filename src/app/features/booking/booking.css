@@ -557,8 +557,8 @@
   background:#fff !important; border-radius:14px !important;
   box-shadow:0 8px 32px rgba(0,0,0,.18) !important;
 }
-::ng-deep .mat-calendar { background:#fff !important; }
-::ng-deep .mat-calendar-header { background:#1a3c5e !important; border-radius:14px 14px 0 0; padding:8px; }
+::ng-deep .mat-calendar { background:transparent !important; }
+::ng-deep .mat-calendar-header { background:#3f6c99 !important; border-radius:14px 14px 0 0; padding:8px; }
 ::ng-deep .mat-calendar-controls .mat-button { color:#fff !important; }
 ::ng-deep .mat-calendar-arrow { fill:#fff !important; }
 ::ng-deep .mat-calendar-table-header th { color:#5a7a9c !important; }

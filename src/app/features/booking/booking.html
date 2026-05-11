@@ -120,7 +120,7 @@
         <option value="">{{ 'misc.allStatuses' | translate }}</option>
         <option value="Pending">{{ 'status.Pending' | translate }}</option>
         <option value="Confirmed">{{ 'status.Confirmed' | translate }}</option>
-        <option value="WaitingList">{{ 'status.WaitingList' | translate }}</option>
+        <!-- <option value="WaitingList">{{ 'status.WaitingList' | translate }}</option> -->
         <option value="Cancelled">{{ 'status.Cancelled' | translate }}</option>
         <option value="Done">{{ 'status.Done' | translate }}</option>
       </select>
@@ -530,7 +530,7 @@
       </div>
     </div>
     <div class="mobile-list-header">
-      <span class="results-count">{{ 'misc.overviewBookingsCount' | translate: { n: filteredBookings.length } }}</span>
+      <span class="results-count">{{ 'misc.overviewBookingsCount' | translate: { n: total } }}</span>
     </div>
     <div class="booking-card" *ngFor="let b of pagedBookings" [class.card-cancelled]="b.status==='Cancelled'"
       [class.card-done]="b.status==='Done'" (click)="openDetailSheet(b)">
@@ -559,7 +559,7 @@
       <p>{{ 'misc.noMatchingBookings' | translate }}</p>
     </div>
 
-    <div class="pagination-bar mobile-pag" *ngIf="filteredBookings.length > pageSize">
+    <div class="pagination-bar mobile-pag" *ngIf="total > pageSize">
       <button class="pag-btn" (click)="goToPage(currentPage-1)" [disabled]="currentPage===1"><i
           class="bi bi-chevron-right"></i></button>
       <span class="pag-info">{{ currentPage }} / {{ totalPages }}</span>
