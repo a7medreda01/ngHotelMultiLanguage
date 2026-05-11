@@ -59,20 +59,23 @@ export class NotificationComponent implements OnInit, OnDestroy {
 formatTime(dateStr: string): string {
   if (!dateStr) return '';
 
-  const normalized = dateStr.endsWith('Z') ? dateStr : dateStr + 'Z';
-  const date = new Date(normalized);
-
+  // جرب الاتنين — مع Z ومن غيرها
+  let date = new Date(dateStr.endsWith('Z') ? dateStr : dateStr + 'Z');
+  if (isNaN(date.getTime())) date = new Date(dateStr);
   if (isNaN(date.getTime())) return '';
 
-  const diffMs = Date.now() - date.getTime(); // ✅ كلاهم UTC
-  const diffMin = Math.floor(diffMs / 60000);
+  const diffMs  = Date.now() - date.getTime();
+  const diffMin = Math.floor(Math.abs(diffMs) / 60000);
   const diffHr  = Math.floor(diffMin / 60);
   const diffDay = Math.floor(diffHr / 24);
 
-  if (diffMin < 1)   return 'الآن';
+  if (diffMs < 0 || diffMin < 1) return 'الآن';
+  if (diffMin === 1)  return 'منذ دقيقة';
   if (diffMin < 60)  return `منذ ${diffMin} دقيقة`;
+  if (diffHr  === 1) return 'منذ ساعة';
   if (diffHr  < 24)  return `منذ ${diffHr} ساعة`;
   if (diffDay === 1) return 'أمس';
+  if (diffDay < 7)   return `منذ ${diffDay} أيام`;
 
   return date.toLocaleDateString('ar-EG', {
     timeZone: 'Asia/Amman',

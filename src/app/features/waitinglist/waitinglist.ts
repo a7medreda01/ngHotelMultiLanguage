@@ -355,9 +355,11 @@ export class Waitinglist implements OnInit, OnDestroy {
     window.open(`https://wa.me/${clean}`, '_blank');
   }
 
-  showMcNotes(notes: string | undefined): boolean {
-    return !!notes?.trim() && notes.trim() !== 'لا يوجد ملاحظات';
-  }
+showMcNotes(notes: any): boolean {
+  if (!notes) return false;
+  const str = String(notes).trim();
+  return str.length > 0 && str !== 'لا يوجد ملاحظات';
+}
 
   get pendingCount(): number { return this.items.filter((i) => i.status === 'Pending').length; }
   get contactedCount(): number { return this.items.filter((i) => i.status === 'Contacted').length; }
