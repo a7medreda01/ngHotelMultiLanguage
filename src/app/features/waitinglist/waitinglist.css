@@ -540,8 +540,8 @@
 .btn-whatsapp-full {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 8px 14px;
+  /* gap: 6px; */
+  padding: 5px;
   border-radius: 10px;
   border: none;
   background: #25d366;
@@ -562,7 +562,7 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 8px 16px;
+  padding: 8px;
   border-radius: 10px;
   border: 1.5px solid #25d366;
   background: rgba(37, 211, 102, 0.08);
