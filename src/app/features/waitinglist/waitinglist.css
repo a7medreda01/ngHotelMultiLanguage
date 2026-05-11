@@ -538,10 +538,11 @@
  
 /* زر واتساب كامل العرض في الموبايل */
 .btn-whatsapp-full {
+  width: 30px !important;
   display: inline-flex;
   align-items: center;
   /* gap: 6px; */
-  padding: 5px;
+  padding: 8px ;
   border-radius: 10px;
   border: none;
   background: #25d366;

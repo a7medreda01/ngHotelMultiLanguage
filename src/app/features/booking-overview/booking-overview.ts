@@ -122,10 +122,19 @@ export class BookingOverviewComponent implements OnInit, OnChanges {
     }
   }
 
-  open(): void {
-    this.showModal = true;
-    this.cdr.detectChanges();
-  }
+open(): void {
+  this.showModal = true;
+
+  // reset state
+  this.selectedDay = null;
+  this.dayDetail = null;
+  this.expandedSlotKey = '';
+
+  // refresh latest data every open
+  this.loadData();
+
+  this.cdr.detectChanges();
+}
 
   close(): void {
     this.showModal = false;
